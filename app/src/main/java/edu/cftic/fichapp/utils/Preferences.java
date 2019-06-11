@@ -12,6 +12,8 @@ public class Preferences {
 
 
     private static final String NOMBRE_FICHERO = "fichero_prefs";
+/*
+
 
     public static void guardarTexto (Context context, EditText... array){
 
@@ -47,6 +49,7 @@ public class Preferences {
         }
 
     }
+     */
 
     public static void check(Context context, CheckBox checkBox) {
 
@@ -81,6 +84,28 @@ public class Preferences {
         //SharedPreferences.Editor editor = fichero.edit();
 
         return fichero.getBoolean("booleano",false);
+
+    }
+
+    public static void guardar_string(Context context, String t) {
+
+        SharedPreferences fichero = null;
+
+        fichero = context.getSharedPreferences(NOMBRE_FICHERO, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = fichero.edit();
+
+        editor.putString("texto",t);
+
+    }
+
+    public static String mostrar_string(Context context) {
+
+        SharedPreferences fichero = null;
+
+        fichero = context.getSharedPreferences(NOMBRE_FICHERO, Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor = fichero.edit();
+
+        return fichero.getString("texto",null);
 
     }
 
